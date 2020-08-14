@@ -317,7 +317,7 @@ Resources:
     DependsOn:
       - InternetGatewayAttachment
     Properties:
-      HealthCheckPath: /wordpress/wp-admin/install.php
+      HealthCheckPath: /
       HealthCheckIntervalSeconds: 10
       HealthCheckTimeoutSeconds: 5
       HealthyThresholdCount: 2
@@ -499,7 +499,7 @@ Resources:
 
           sed -i 's/ACCESSKEY/${IAMUserCredentials}/g' /root/wordpress/OC-P10/docker/docker-compose.yml
 
-          sed -i 's/SECRETKEY/${IAMUserCredentials.SecretAccessKey}/g' /root/wordpress/OC-P10/docker/docker-compose.yml
+          sed -i "s|SECRETKEY|${IAMUserCredentials.SecretAccessKey}|g" /root/wordpress/OC-P10/docker/docker-compose.yml
 
           sed -i 's/localhost/${ApplicationLoadBalancer.DNSName}/g' /root/wordpress/OC-P10/docker/Makefile
 
