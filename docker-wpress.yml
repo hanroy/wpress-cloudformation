@@ -441,7 +441,7 @@ Resources:
     Type: 'AWS::RDS::DBInstance'
     Properties:
       SourceDBInstanceIdentifier: !Ref MasterDB
-      DBInstanceClass: !Ref DBInstanceClass
+      DBInstanceClass: !Ref DBClass
       AvailabilityZone: !Select 
         - 1
         - !GetAZs ''
